@@ -9,12 +9,12 @@ __all__ = [
     'get_uci_attributes',
 ]
 
-def extract_zip_url(data_url: str, write_path: str, flatten=True):
+def extract_zip_url(url: str, write_path: str, flatten=True):
     '''Extract .zip file from URL to local machine'''
     if not url.endswith('.zip'):
         raise ValueError("URL must end with '.zip'")
 
-    r = requests.get(data_url)
+    r = requests.get(url)
 
     with zipfile.ZipFile(io.BytesIO(r.content)) as z:
         if flatten:
