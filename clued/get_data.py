@@ -52,11 +52,11 @@ def get_uci_data_urls(url: str) -> List[str]:
     return data_urls
 
 
-def get_uci_attributes(names_url: str):
+def get_uci_attributes(url: str):
     if not url.endswith('.names'):
         raise ValueError("URL must end with '.names'")
 
-    r = requests.get(names_url)
+    r = requests.get(url)
 
     attr_found, blank_count = [False] * 2
     attrs = {}
